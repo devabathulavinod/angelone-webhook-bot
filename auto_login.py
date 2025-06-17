@@ -5,10 +5,10 @@ import requests
 from smartapi import SmartConnect
 
 # === CREDENTIALS ===
-CLIENT_ID = "YOUR_CLIENT_ID"
-PIN = "YOUR_PIN"
-TOTP_SECRET = "YOUR_TOTP_SECRET"
-API_KEY = "YOUR_API_KEY"  # Optional if used in older SDK
+CLIENT_ID = "D224687"
+PIN = "5678"
+TOTP_SECRET = "RSC37LE3FNM3W45NNDBVP4W134"
+API_KEY = "XUdpW7oz"  # Optional if used in older SDK
 
 # === SETUP SMARTCONNECT ===
 obj = SmartConnect(api_key=CLIENT_ID)
