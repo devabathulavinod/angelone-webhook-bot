@@ -6,9 +6,9 @@ import time
 app = Flask(__name__)
 
 # === CONFIGURE THESE ===
-TOTP_SECRET = "YOUR_TOTP_SECRET"
-CLIENT_ID = "YOUR_CLIENT_ID"
-API_KEY = "YOUR_API_KEY"
+TOTP_SECRET = "RSC37LE3FNM3W45NNDBVP4W134"
+CLIENT_ID = "D224687"
+API_KEY = "XUdpW7oz"
 ACCESS_TOKEN = "YOUR_ACCESS_TOKEN"
 BASE_URL = "https://apiconnect.angelbroking.com"
 
