@@ -1,25 +1,30 @@
-from smartapi import SmartConnect
+# auto_login.py
+import time
 import pyotp
-import os
+import requests
+from smartapi import SmartConnect
 
-# === Login Details ===
-API_KEY = os.getenv("ANGEL_API_KEY")
-CLIENT_ID = os.getenv("ANGEL_CLIENT_ID")
-TOTP_SECRET = os.getenv("ANGEL_TOTP_SECRET")
+# === CREDENTIALS ===
+CLIENT_ID = "YOUR_CLIENT_ID"
+PIN = "YOUR_PIN"
+TOTP_SECRET = "YOUR_TOTP_SECRET"
+API_KEY = "YOUR_API_KEY"  # Optional if used in older SDK
 
-# === Login Function ===
-obj = SmartConnect(api_key=API_KEY)
+# === SETUP SMARTCONNECT ===
+obj = SmartConnect(api_key=CLIENT_ID)
+
+# === GENERATE TOTP ===
 totp = pyotp.TOTP(TOTP_SECRET).now()
 
-try:
-    session_data = obj.generateSession(CLIENT_ID, totp)
-    access_token = session_data['data']['access_token']
-    
-    # Save to file or database
+# === LOGIN ===
+data = obj.generateSession(CLIENT_ID, PIN, totp)
+
+if "data" in data:
+    access_token = data['data']['access_token']
+    print("✅ Access Token:", access_token)
+
+    # Save token to file
     with open("access_token.txt", "w") as f:
         f.write(access_token)
-    
-    print("✅ ACCESS_TOKEN updated:", access_token)
-
-except Exception as e:
-    print("❌ Login error:", e)
+else:
+    print("❌ Login failed:", data)
