@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CLIENT_ID: ${{ D224687 }}
-      API_KEY: ${{ XUdpW7oz  }}
-      TOTP_SECRET: ${{ RSC37LE3FNM3W45NNDBVP4WI34 }}
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      API_KEY: ${{ secrets.API_KEY }}
+      TOTP_SECRET: ${{ secrets.TOTP_SECRET }}
 
     steps:
       - name: Checkout repo
