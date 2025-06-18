@@ -2,4 +2,6 @@ flask
 requests
 smartapi-python==1.0.2
 pyotp
+twisted==22.10.0
+
 
