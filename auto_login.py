@@ -2,7 +2,7 @@
 import time
 import pyotp
 import requests
-from smartapi import SmartConnect
+from smartapi.smartConnect import SmartConnect
 
 # === CREDENTIALS ===
 CLIENT_ID = "D224687"
