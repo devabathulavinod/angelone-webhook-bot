@@ -1,0 +1,30 @@
+name: Auto Login AngelOne
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Requirements
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Auto Login Script
+        run: |
+          python auto_login.py
+        env:
+          CLIENT_ID: ${{ D224687 }}
+          API_KEY: ${ XUdpW7oz  }}
+          TOTP_SECRET: ${{ RSC37LE3FNM3W45NNDBVP4WI34 }}
