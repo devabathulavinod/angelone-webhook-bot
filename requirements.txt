@@ -6,6 +6,8 @@ twisted==22.10.0
 pyopenssl
 autobahn
 service_identity
+autobahn
+
 
 
 
