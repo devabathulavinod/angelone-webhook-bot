@@ -28,11 +28,22 @@ def generate_otp():
     totp = pyotp.TOTP(TOTP_SECRET)
     return totp.now()
 
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    if request.is_json:
-        data = request.get_json()
-        print("✅ Received:", data)
+import json
+# … other imports above …
+
+@app.route("/webhook", methods=["POST"])
+def on_webhook():
+    # ─── Force-parse the raw body as JSON ───
+    raw = request.data
+    try:
+        data = json.loads(raw)
+    except Exception:
+        data = request.get_json(force=True)
+
+    print("🔔 Received alert:", data)
+
+    # … rest of your code unchanged …
+
 
         signal = data.get("signal")
         symbol = data.get("symbol")
