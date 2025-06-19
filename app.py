@@ -33,7 +33,9 @@ import json
 
 @app.route("/webhook", methods=["POST"])
 def on_webhook():
-    # ─── Force-parse the raw body as JSON ───
+    import json
+
+    # ─── Force-parse raw body as JSON ───
     raw = request.data
     try:
         data = json.loads(raw)
